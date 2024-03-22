@@ -30,7 +30,7 @@ public class PropertyTest
     @BeforeEach
     public void setUp()
     {
-        property1 = new Property("T3 Monte Belo", 150000.0);
+        this.property1 = new Property("T3 Monte Belo", 150000.0);
     }
 
     @Test
