@@ -17,6 +17,7 @@ public class CompanyTest
     private Company company1;
     private User client1, client2, seller1, seller2;
     private Property property1, property2;
+    private Sell sell1, sell2;
     
     /**
      * Default constructor for test class CompanyTest
@@ -40,6 +41,8 @@ public class CompanyTest
         this.seller2 = new User("Rodrigo Rodrigues", "966777152", "roro@remax.pt");
         this.property1 = new Property("T1 Monte Feio", 130000.0);
         this.property2 = new Property("T2 Monte Lindo", 140000.0);
+        this.sell1 = new Sell(client1, seller1, property1);
+        this.sell2 = new Sell(client2, seller2, property2);
     }
 
     @Test
@@ -104,6 +107,17 @@ public class CompanyTest
     @Test
     public void testRegisterPropertyNull(){
         assertEquals(false,company1.registerProperty(null));
+    }
+    
+    @Test
+    public void testCreateSell(){
+        company1.registerClient(client1);
+        company1.registerSeller(seller1);
+        company1.registerProperty(property1);
+        assertEquals(true,company1.createSell(client1, seller1, property1));
+    }
+    @Test
+    public void testCalculateSellsOfTheYear(){
     }
     
     /**
